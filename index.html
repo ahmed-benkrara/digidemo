@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+    <script src="https://kit.fontawesome.com/99be30e45a.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+      #followcr{
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1500;
+        left: 0;
+        top: 0;
+        border: 2px solid #ca35c3;
+      }
+
+      #noy{
+        position: fixed;
+        z-index: 1501;
+        width: 10px;
+        height: 10px;
+        background: #ca35c3;
+        border-radius: 50%;
+        left: 0;
+        top: 0;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body class="font-poppins">
+    <div id="followcr"></div>
+    <div id="noy"></div>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+    <script>
+      const cursor = document.getElementById('followcr')
+      const noy = document.getElementById('noy')
+      document.addEventListener('mousemove', (e) => {
+        console.log(e.clientX, e.clientY)
+        noy.style.top = `${e.clientY - 5}px`
+        noy.style.left = `${e.clientX - 5}px`
+        setTimeout(() => {
+          cursor.style.top = `${e.clientY - 20}px`
+          cursor.style.left = `${e.clientX - 20}px`
+        }, 30)
+      })
+    </script>
+  </body>
+</html>
